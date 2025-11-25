@@ -36,6 +36,9 @@ public class HomeActivity extends AppCompatActivity {
         setupClickListener(R.id.doctorinfo, DoctorInfoActivity.class);
         setupClickListener(R.id.icon3, DoctorInfoActivity.class);
 
+        setupClickListener(R.id.healthinfo, NewsActivity.class);
+        setupClickListener(R.id.icon5, NewsActivity.class);
+
 
         setupClickListener(R.id.logout, LoginActivity.class, true);
         setupClickListener(R.id.icon6, LoginActivity.class, true);
