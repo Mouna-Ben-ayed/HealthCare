@@ -15,7 +15,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public static final String TABLE_APPOINTMENTS = "appointments";
     public static final String TABLE_DOCTORS = "doctors";
 
-    private static final String TABLE_HISTORIQUE = "health_data";
+    public static final String TABLE_HISTORIQUE = "health_data";
 
 
     // Common column names
@@ -44,11 +44,11 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_ADDRESS = "address";
 
 
-    private static final String COLUMN_MEDICAL_HISTORY = "medical_history";
-    private static final String COLUMN_TEST_RESULTS = "test_results";
-    private static final String COLUMN_ALLERGIES = "allergies";
-    private static final String COLUMN_VACCINATIONS = "vaccinations";
-    private static final String COLUMN_ADDITIONAL_DETAILS = "addition";
+    public static final String COLUMN_MEDICAL_HISTORY = "medical_history";
+    public static final String COLUMN_TEST_RESULTS = "test_results";
+    public static final String COLUMN_ALLERGIES = "allergies";
+    public static final String COLUMN_VACCINATIONS = "vaccinations";
+    public static final String COLUMN_ADDITIONAL_DETAILS = "addition";
     // Table Create Statements
     private static final String CREATE_TABLE_USERS = "CREATE TABLE " + TABLE_USERS +
             "(" +

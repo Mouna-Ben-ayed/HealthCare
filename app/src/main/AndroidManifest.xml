@@ -12,7 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthCare">
         <activity
-            android:name=".MainActivity"
+            android:name=".Views.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Views.MedicineTimeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Views.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Views.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Views.HealthInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Views.DoctorTimeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Views.DoctorInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Views.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
