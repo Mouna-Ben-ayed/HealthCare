@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.healthcare.Manager.AlarmController;
 import com.example.healthcare.Manager.MedicineHandler;
 import com.example.healthcare.Models.Medicine;
-import com.example.healthcare.Views.MedicineAdapter;
+import com.example.healthcare.Models.MedicineAdapter;
 import com.example.healthcare.R;
 
 import java.util.ArrayList;

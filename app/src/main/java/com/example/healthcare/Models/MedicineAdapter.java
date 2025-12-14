@@ -1,4 +1,4 @@
-package com.example.healthcare.Views;
+package com.example.healthcare.Models;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.healthcare.Models.Medicine;
 import com.example.healthcare.R;
+import com.example.healthcare.Views.MedicineTimeActivity;
 
 import java.util.List;
 
