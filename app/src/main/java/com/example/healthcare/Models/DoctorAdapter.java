@@ -18,7 +18,6 @@ import java.util.List;
 public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorViewHolder> {
 
     private final List<Doctor> doctorList;
-    // ⚠️ CORRECTION 1: Utilisation du DoctorHandler pour l'accès à la DB
     private final DoctorHandler doctorHandler;
 
     // CORRECTION 2: Le constructeur prend DoctorHandler

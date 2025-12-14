@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -50,6 +51,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void setupClickListener(int viewId, Class<?> targetActivity, boolean clearPrefs) {
         findViewById(viewId).setOnClickListener(v -> {
+            Log.d("CLICK_TEST", "Clicked: " + getResources().getResourceEntryName(viewId));
             if (clearPrefs) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.clear();
