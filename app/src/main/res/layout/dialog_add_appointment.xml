@@ -9,14 +9,15 @@
         android:id="@+id/doctor_name_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Doctor Name" />
+        android:hint="Doctor Name"
+        android:focusable="true"
+        android:inputType="textPersonName"/>
 
     <EditText
         android:id="@+id/appointment_date_time_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Appointment Date and Time" />
-
+        android:hint="Select Date et Time"
+        android:focusable="false"
+        android:clickable="true"/>
 </LinearLayout>
-
-
