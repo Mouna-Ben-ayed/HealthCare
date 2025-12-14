@@ -2,6 +2,8 @@ package com.example.healthcare.Views;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.healthcare.Manager.AlarmController;
 import com.example.healthcare.Manager.MedicineHandler;
 import com.example.healthcare.Models.Medicine;
 import com.example.healthcare.Views.MedicineAdapter;
@@ -31,6 +34,9 @@ public class MedicineTimeActivity extends AppCompatActivity {
     private List<Medicine> medicineList;
     private MedicineAdapter adapter;
 
+    private AlarmController alarmController;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +51,9 @@ public class MedicineTimeActivity extends AppCompatActivity {
         // Initialize database handler
         medicineHandler = new MedicineHandler(this);
 
+        alarmController = new AlarmController(this);
+
+
         // Initialize list and adapter
         medicineList = new ArrayList<>();
         adapter = new MedicineAdapter(this, medicineList);
@@ -55,6 +64,14 @@ public class MedicineTimeActivity extends AppCompatActivity {
 
         // Button click
         addButton.setOnClickListener(v -> addMedicine());
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 101);
+            }
+        }
+
     }
 
     private void addMedicine() {
@@ -75,6 +92,8 @@ public class MedicineTimeActivity extends AppCompatActivity {
             Medicine medicine = new Medicine(userId, medicineName, hour, minute);
             medicine.setMedicineId(id);
             medicineList.add(medicine);
+            alarmController.scheduleDailyAlarm(medicine);
+
             adapter.notifyDataSetChanged();
 
             Toast.makeText(this, "Medicine added successfully", Toast.LENGTH_SHORT).show();
@@ -99,4 +118,24 @@ public class MedicineTimeActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
         return sharedPreferences.getInt("user_id", 0);
     }
+
+    public void deleteMedicine(Medicine medicine) {
+        long id = medicine.getId();
+
+        // Supprimer de la DB
+        boolean deleted = medicineHandler.deleteMedicine(id);
+        if (deleted) {
+            // Supprimer de la liste et mettre à jour l'adapter
+            medicineList.remove(medicine);
+            adapter.notifyDataSetChanged();
+
+            // Annuler l'alarme correspondante
+            //alarmController.cancelAlarm(medicine);
+
+            Toast.makeText(this, "Medicine deleted", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Error deleting medicine", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

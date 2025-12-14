@@ -65,4 +65,14 @@ public class MedicineHandler {
         db.close();
         return medicines;
     }
+
+    public boolean deleteMedicine(long medicineId) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        int rows = db.delete(SQLiteHelper.TABLE_MEDICINES,
+                SQLiteHelper.COLUMN_ID + "=?",
+                new String[]{String.valueOf(medicineId)});
+        db.close();
+        return rows > 0;
+    }
+
 }

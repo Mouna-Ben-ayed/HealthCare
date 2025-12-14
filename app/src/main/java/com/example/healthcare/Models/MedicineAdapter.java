@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.healthcare.Models.Medicine;
@@ -47,11 +48,19 @@ public class MedicineAdapter extends BaseAdapter {
 
         TextView tvMedicineName = row.findViewById(R.id.tvMedicineName);
         TextView tvMedicineTime = row.findViewById(R.id.tvMedicineTime);
+        ImageButton btnDelete = row.findViewById(R.id.btnDelete);
 
         Medicine medicine = medicineList.get(position);
         tvMedicineName.setText(medicine.getName());
         tvMedicineTime.setText(String.format("%02d:%02d", medicine.getHour(), medicine.getMinute()));
 
+        btnDelete.setOnClickListener(v -> {
+            if (context instanceof MedicineTimeActivity) {
+                ((MedicineTimeActivity) context).deleteMedicine(medicine);
+            }
+        });
+
         return row;
     }
+
 }
