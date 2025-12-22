@@ -49,6 +49,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
         if (article.getImageUrl() != null && !article.getImageUrl().isEmpty()) {
             Picasso.get().load(article.getImageUrl()).into(holder.image);
+        } else {
+            holder.image.setImageDrawable(null);
         }
     }
 
