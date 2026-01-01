@@ -1,0 +1,13 @@
+<!-- res/drawable/button_background_delete.xml -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#FFFFFF"> <!-- Effet d'ondulation -->
+
+    <item>
+        <shape android:shape="rectangle">
+            <!-- Utilisez une couleur rouge/orangée pour la suppression -->
+            <solid android:color="#D32F2F"/> <!-- Exemple : Rouge foncé Material -->
+            <corners android:radius="12dp"/>
+        </shape>
+    </item>
+</ripple>
+    

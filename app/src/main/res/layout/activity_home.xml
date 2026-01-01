@@ -7,175 +7,121 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Views.HomeActivity"
-    android:background="@drawable/medappoin">
+    android:background="@drawable/subtle_blue_gradient">
 
+    <!-- Application Title -->
     <TextView
         android:id="@+id/textView"
-        android:layout_width="365dp"
-        android:layout_height="59dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="HEALTH CARE"
         android:textAlignment="center"
-        android:textColor="@color/purple_700"
-        android:textSize="48sp"
+        android:textColor="@color/bleu"
+        android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <RelativeLayout
-        android:layout_width="364dp"
-        android:layout_height="626dp"
+    <!-- Main Menu Grid -->
+    <GridLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:columnCount="2"
+        android:rowCount="3"
+        app:layout_constraintTop_toBottomOf="@id/textView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.195">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
-            android:id="@+id/icon1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="50dp"
-            android:src="@drawable/icon1" />
+        <!-- Card 1: MEDICINE TIME -->
+        <androidx.cardview.widget.CardView
+            style="@style/HomeMenuCard"
+            android:id="@+id/card_medicine_time">
 
-        <TextView
-            android:id="@+id/medecinetime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/icon1"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="-34dp"
-            android:text="MEDECINE TIME"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold" />
+            <LinearLayout style="@style/HomeMenuCardContent">
+                <ImageView
+                    style="@style/HomeMenuIcon"
+                    android:src="@drawable/icon1" />
 
-        <ImageView
-            android:id="@+id/icon2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginRight="50dp"
-            android:src="@drawable/icon2" />
+                <TextView
+                    style="@style/HomeMenuText"
+                    android:text="MEDICINE TIME" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/doctortime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/icon2"
-            android:layout_alignBottom="@+id/icon2"
-            android:layout_marginStart="220dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="-36dp"
-            android:text="DOCTOR TIME"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:id="@+id/icon3"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="230dp"
-            android:src="@drawable/icon3" />
+        <!-- Card 2: DOCTOR TIME -->
+        <androidx.cardview.widget.CardView
+            style="@style/HomeMenuCard"
+            android:id="@+id/card_doctor_time">
 
-        <TextView
-            android:id="@+id/doctorinfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/icon3"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="-34dp"
-            android:text="DOCTOR INFOS"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold" />
+            <LinearLayout style="@style/HomeMenuCardContent">
+                <ImageView
+                    style="@style/HomeMenuIcon"
+                    android:src="@drawable/icon2" />
 
-        <ImageView
-            android:id="@+id/icon4"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="230dp"
-            android:layout_marginRight="50dp"
-            android:src="@drawable/icon4" />
+                <TextView
+                    style="@style/HomeMenuText"
+                    android:text="DOCTOR TIME" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/booklet"
-            android:layout_width="144dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/icon4"
-            android:layout_marginStart="208dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="-59dp"
-            android:text="ELECTRONIC HEALTH BOOKLET"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold" />
-        <ImageView
-            android:id="@+id/icon5"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="400dp"
-            android:src="@drawable/icon5" />
+        </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/healthinfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/icon5"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="-34dp"
-            android:text="HEALTH INFO"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold" />
+        <!-- Card 3: DOCTOR INFO -->
+        <androidx.cardview.widget.CardView
+            style="@style/HomeMenuCard"
+            android:id="@+id/card_doctor_info">
 
-        <ImageView
-            android:id="@+id/icon6"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="400dp"
-            android:layout_marginRight="50dp"
-            android:src="@drawable/icon6" />
+            <LinearLayout style="@style/HomeMenuCardContent">
+                <ImageView
+                    style="@style/HomeMenuIcon"
+                    android:src="@drawable/icon3" />
 
-        <TextView
-            android:id="@+id/logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/icon6"
-            android:layout_alignBottom="@+id/icon6"
-            android:layout_marginStart="220dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="-36dp"
-            android:text="LOG OUT"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold" />
+                <TextView
+                    style="@style/HomeMenuText"
+                    android:text="DOCTOR INFO" />
+            </LinearLayout>
 
-    </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card 4: HEALTH INFO -->
+        <androidx.cardview.widget.CardView
+            style="@style/HomeMenuCard"
+            android:id="@+id/card_health_info">
+
+            <LinearLayout style="@style/HomeMenuCardContent">
+                <ImageView
+                    style="@style/HomeMenuIcon"
+                    android:src="@drawable/icon5" />
+
+                <TextView
+                    style="@style/HomeMenuText"
+                    android:text="HEALTH INFO" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card 5: LOG OUT -->
+        <androidx.cardview.widget.CardView
+            style="@style/HomeMenuCard"
+            android:id="@+id/card_logout">
+
+            <LinearLayout style="@style/HomeMenuCardContent">
+                <ImageView
+                    style="@style/HomeMenuIcon"
+                    android:src="@drawable/icon6" />
+
+                <TextView
+                    style="@style/HomeMenuText"
+                    android:text="LOG OUT" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

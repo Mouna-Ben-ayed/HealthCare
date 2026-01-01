@@ -1,40 +1,72 @@
 <!-- item_doctor.xml -->
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:layout_marginVertical="8dp"
+    android:elevation="2dp">
 
-    <TextView
-        android:id="@+id/doctor_name_textview"
-        android:layout_width="wrap_content"
+    <!-- Vertical container for doctor info -->
+    <LinearLayout
+        android:id="@+id/info_container"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/delete_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <TextView
-        android:id="@+id/doctor_phone_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp" />
+        <!-- Doctor Name -->
+        <TextView
+            android:id="@+id/doctor_name_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/bleu"
+            android:paddingBottom="4dp"
+            android:drawableStart="@drawable/ic_baseline_person_24"
+            android:drawablePadding="8dp" />
 
-    <TextView
-        android:id="@+id/doctor_address_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp" />
+        <!-- Phone -->
+        <TextView
+            android:id="@+id/doctor_phone_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/bleu"
+            android:paddingBottom="2dp"
+            android:drawableStart="@drawable/baseline_contact_phone_24"
+            android:drawablePadding="8dp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/black"
-        android:layout_marginTop="8dp" />
+        <!-- Address -->
+        <TextView
+            android:id="@+id/doctor_address_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/bleu"
+            android:paddingBottom="8dp"
+            android:drawableStart="@drawable/outline_add_location_24"
+            android:drawablePadding="8dp" />
+
+    </LinearLayout>
+
+    <!-- Delete Button on the right -->
     <Button
         android:id="@+id/delete_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_bg"
-        android:text="Delete" />
+        android:layout_height="48dp"
+        android:text="Delete"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_background_delete"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="8dp"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

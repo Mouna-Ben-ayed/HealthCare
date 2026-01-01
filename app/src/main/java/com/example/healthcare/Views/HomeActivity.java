@@ -4,11 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.util.Log;import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,22 +23,13 @@ public class HomeActivity extends AppCompatActivity {
         String username = sharedPreferences.getString("username", "");
         Toast.makeText(this, "Welcome " + username, Toast.LENGTH_SHORT).show();
 
-        // Boutons / images
-        setupClickListener(R.id.medecinetime, MedicineTimeActivity.class);
-        setupClickListener(R.id.icon1, MedicineTimeActivity.class);
-
-        setupClickListener(R.id.doctortime, DoctorTimeActivity.class);
-        setupClickListener(R.id.icon2, DoctorTimeActivity.class);
-
-        setupClickListener(R.id.doctorinfo, DoctorInfoActivity.class);
-        setupClickListener(R.id.icon3, DoctorInfoActivity.class);
-
-        setupClickListener(R.id.healthinfo, NewsActivity.class);
-        setupClickListener(R.id.icon5, NewsActivity.class);
-
-
-        setupClickListener(R.id.logout, LoginActivity.class, true);
-        setupClickListener(R.id.icon6, LoginActivity.class, true);
+        // On configure les clics sur les nouvelles CardViews
+        // Chaque carte a maintenant son propre ID. Plus besoin de lier le texte et l'icône séparément.
+        setupClickListener(R.id.card_medicine_time, MedicineTimeActivity.class);
+        setupClickListener(R.id.card_doctor_time, DoctorTimeActivity.class);
+        setupClickListener(R.id.card_doctor_info, DoctorInfoActivity.class);
+        setupClickListener(R.id.card_health_info, NewsActivity.class);
+        setupClickListener(R.id.card_logout, LoginActivity.class, true); // Le listener pour le logout
     }
 
     private void setupClickListener(int viewId, Class<?> targetActivity) {
@@ -51,14 +38,19 @@ public class HomeActivity extends AppCompatActivity {
 
     private void setupClickListener(int viewId, Class<?> targetActivity, boolean clearPrefs) {
         findViewById(viewId).setOnClickListener(v -> {
-            Log.d("CLICK_TEST", "Clicked: " + getResources().getResourceEntryName(viewId));
+            Log.d("CLICK_TEST", "Card clicked: " + getResources().getResourceEntryName(viewId));
             if (clearPrefs) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.clear();
                 editor.apply();
+                // Redirige vers l'écran de connexion et ferme l'activité actuelle
+                Intent intent = new Intent(HomeActivity.this, targetActivity);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            } else {
+                startActivity(new Intent(HomeActivity.this, targetActivity));
             }
-            startActivity(new Intent(HomeActivity.this, targetActivity));
-            if (clearPrefs) finish(); // Ferme HomeActivity après logout
         });
     }
 }

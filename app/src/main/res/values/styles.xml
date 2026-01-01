@@ -1,0 +1,70 @@
+<!-- res/values/styles.xml -->
+<resources>
+
+    <!-- Style pour les cartes du menu d'accueil -->
+    <style name="HomeMenuCard" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <!-- Style pour le contenu (LinearLayout) à l'intérieur de la carte -->
+    <style name="HomeMenuCardContent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <!-- Style pour l'icône dans la carte -->
+    <style name="HomeMenuIcon">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <!-- Style pour le texte dans la carte -->
+    <style name="HomeMenuText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/bleu</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="LoginEditText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:background">@drawable/edittext_background</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:textColor">@color/bleu</item>
+        <item name="android:textColorHint">#808080</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="DialogEditText">
+        <item name="android:layout_width">match_parent</item>
+        <!-- Important : On utilise wrap_content pour la hauteur dans une dialogue -->
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">56dp</item> <!-- On garde une hauteur minimale -->
+        <item name="android:background">@drawable/edittext_background</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:textColor">@color/bleu</item>
+        <item name="android:textColorHint">#808080</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+</resources>

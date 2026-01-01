@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="12dp"
-    android:gravity="center_vertical">
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:layout_marginVertical="8dp"
+    android:elevation="2dp">
 
-    <!-- Nom et heure du médicament -->
+    <!-- Medicine name and time -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_weight="1"
@@ -15,26 +18,33 @@
 
         <TextView
             android:id="@+id/tvMedicineName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Medicine Name"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/bleu"
+            android:drawableStart="@drawable/outline_admin_meds_24"
+            android:drawablePadding="8dp"
+            android:paddingBottom="2dp"/>
 
         <TextView
             android:id="@+id/tvMedicineTime"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="00:00"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:textColor="@color/bleu"
+            android:drawableStart="@drawable/ic_baseline_calendar_month_24"
+            android:drawablePadding="8dp"/>
     </LinearLayout>
 
-    <!-- Bouton de suppression -->
+    <!-- Delete button -->
     <ImageButton
         android:id="@+id/btnDelete"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/ic_delete"
-        android:contentDescription="Delete"/>
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/sharp_auto_delete_24"
+        android:contentDescription="Delete"
+        android:padding="8dp"/>
 </LinearLayout>
